@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import './Cards.scss';
 
 class cards extends Component {
+
   constructor(props) {
     super(props);
   }
 
   numberOfLines = (text) => {
-    var teste = text.substring(0, 150) + '...';
-    return teste;
+    text = text.substring(0, 150) + '...';
+    return text;
+  }
+
+  detail = (movie) => {
+    
   }
 
   render() {
@@ -28,7 +33,7 @@ class cards extends Component {
                   <h2>{item.release_date}</h2>
                   <p>{this.numberOfLines(item.overview)}</p>
                 </div>
-                <div className="card-mais">
+                <div onClick={() => this.detail(item)} className="card-mais">
                   <p>Mais informações</p>
                 </div>
               </div>
